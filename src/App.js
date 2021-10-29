@@ -52,7 +52,7 @@ class App extends Component {
           <img  style={{width:'250px'}}  src={this.state.person.image}  />
         </div>
         <button onClick={this.handleChange}>{this.state.show ? 'hide' : 'show'}</button>
-        <p>This component was mounted {this.state.seconds}s ago</p>
+        <p>This component was mounted {this.state.seconds}s </p>
       </div>
     );
   }
