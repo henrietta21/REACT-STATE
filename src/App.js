@@ -14,28 +14,38 @@ class App extends Component {
   }
 
 
-  handleChange = ()=> {
-  const interval = setInterval(() => {
+  handleOpenProfile = ()=> {
     this.setState({
       show : 'false',
-        person :{
-          fullName :'Apata Henrietta',
-          bio :"An undergraduate with a spice",
-          profession : 'Student',
-          image : 'ProfilePicture.jpg'  
-        }
+      person :{
+        fullName :'Apata Henrietta',
+        bio :"An undergraduate with a spice",
+        profession : 'Student',
+        image : 'ProfilePicture.jpg'  
+      }
     });
-  }, 1000);
+  }
+
+  handleCloseProfile = () =>{
+    this.setState({
+      show : 'true',
+      person :{
+        fullName :'',
+        bio :" ",
+        profession : '',
+        image : ''  
+      }
+    });
   }
   
-  tick() {
-    this.setState(state => ({
-      seconds: state.seconds + 1
+  time() {
+    this.setState(prevState => ({
+      seconds: prevState.seconds + 1
     }));
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.tick(), 1000);
+    this.interval = setInterval(() => this.time, 1000);
   }
 
   
@@ -49,9 +59,9 @@ class App extends Component {
           <h1>{this.state.person.fullName}</h1>
           <h1>{this.state.person.bio}</h1>
           <h1>{this.state.person.profession}</h1>
-          <img  style={{width:'250px'}}  src={this.state.person.image}  />
+          <img  style={{width:'250px'}}  src={this.state.person.image} alt="" />
         </div>
-        <button onClick={this.handleChange}>{this.state.show ? 'hide' : 'show'}</button>
+        <button onClick={this.state.show === 'true'? this.handleOpenProfile: this.handleCloseProfile}>{this.state.show === 'true' ? 'Show': 'Hide'}</button>
         <p>This component was mounted {this.state.seconds}s </p>
       </div>
     );
