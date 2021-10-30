@@ -9,14 +9,14 @@ class App extends Component {
       profession : '',
       image : ''
     },
-    show : 'true',
+    show : true,
     seconds : 0
   }
 
 
   handleOpenProfile = ()=> {
     this.setState({
-      show : 'false',
+      show : false,
       person :{
         fullName :'Apata Henrietta',
         bio :"An undergraduate with a spice",
@@ -28,7 +28,7 @@ class App extends Component {
 
   handleCloseProfile = () =>{
     this.setState({
-      show : 'true',
+      show : true,
       person :{
         fullName :'',
         bio :" ",
@@ -61,7 +61,7 @@ class App extends Component {
           <h1>{this.state.person.profession}</h1>
           <img  style={{width:'250px'}}  src={this.state.person.image} alt="" />
         </div>
-        <button onClick={this.state.show === 'true'? this.handleOpenProfile: this.handleCloseProfile}>{this.state.show === 'true' ? 'Show': 'Hide'}</button>
+        <button onClick={this.state.show ? this.handleOpenProfile : this.handleCloseProfile}>{this.state.show ? 'Show': 'Hide'}</button>
         <p>This component was mounted {this.state.seconds}s </p>
       </div>
     );
