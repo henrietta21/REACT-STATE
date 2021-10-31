@@ -38,6 +38,7 @@ class App extends Component {
     });
   }
   
+  
   time() {
     this.setState(prevState => ({
       seconds: prevState.seconds + 1
@@ -45,7 +46,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.time, 1000);
+    this.interval = setInterval(()=>this.time(), 1000);
   }
 
   
@@ -62,7 +63,7 @@ class App extends Component {
           <img  style={{width:'250px'}}  src={this.state.person.image} alt="" />
         </div>
         <button onClick={this.state.show ? this.handleOpenProfile : this.handleCloseProfile}>{this.state.show ? 'Show': 'Hide'}</button>
-        <p>This component was mounted {this.state.seconds}s </p>
+        <p>This component was mounted {this.state.seconds}s ago</p>
       </div>
     );
   }
