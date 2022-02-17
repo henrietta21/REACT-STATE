@@ -11,7 +11,6 @@ class App extends Component {
       image : img  
     },
     show : true,
-    seconds : 0
   }
 
   handleClick = () =>{
